@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PTEI - Tecnología en Electrónica Industrial</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -11,394 +12,376 @@
             box-sizing: border-box;
         }
 
-        :root {
-            --primary: #0066cc;
-            --secondary: #00d4ff;
-            --dark: #0a0e27;
-            --darker: #050812;
-            --accent: #ff6b6b;
-            --success: #00d98e;
-            --warning: #ffd93d;
-            --text-light: #e0e0e0;
-            --text-lighter: #b0b0b0;
-            --border: rgba(0, 212, 255, 0.1);
-        }
-
         body {
-            font-family: 'Segoe UI', 'Roboto', sans-serif;
-            background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
-            color: var(--text-light);
+            font-family: 'Roboto', sans-serif;
+            background: #ffffff;
+            color: #333;
             line-height: 1.6;
-            overflow-x: hidden;
         }
 
-        /* Estilos de fondo animado */
-        body::before {
+        /* Barra Superior */
+        .top-bar {
+            background: #003b96;
+            color: white;
+            padding: 12px 0;
+            font-size: 14px;
+        }
+
+        .top-bar .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Header Principal */
+        .header-main {
+            background: white;
+            border-bottom: 4px solid #ffc107;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .header-main::after {
             content: '';
-            position: fixed;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, 
+                #ffc107 0%, 
+                #ffc107 25%, 
+                transparent 25%, 
+                transparent 50%, 
+                #ffc107 50%, 
+                #ffc107 75%, 
+                transparent 75%);
+            background-size: 40px 4px;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 24px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo-institucional {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .logo-uniajc {
+            height: 60px;
+            width: auto;
+        }
+        
+        .logo-uniajc img {
+            height: 100%;
+            width: auto;
+        }
+
+        .logo-divider {
+            width: 2px;
+            height: 50px;
+            background: #ffc107;
+        }
+
+        .facultad {
+            font-size: 16px;
+            color: #666;
+            font-weight: 500;
+        }
+
+        /* Banner del Evento */
+        .event-banner {
+            background: linear-gradient(135deg, #003b96 0%, #0052cc 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .event-banner::before {
+            content: '';
+            position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(0, 102, 204, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(0, 212, 255, 0.1) 0%, transparent 50%);
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(90deg, 
+                    rgba(0,255,0,0.05) 1px, 
+                    transparent 1px
+                ),
+                linear-gradient(0deg, 
+                    rgba(0,255,0,0.05) 1px, 
+                    transparent 1px
+                );
+            background-size: 20px 20px;
             pointer-events: none;
-            z-index: -1;
         }
 
+        .event-banner::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 30% 30%, rgba(0,255,0,0.1) 0%, transparent 10px),
+                radial-gradient(circle at 70% 70%, rgba(0,255,0,0.1) 0%, transparent 10px),
+                radial-gradient(circle at 30% 70%, rgba(0,255,0,0.1) 0%, transparent 10px),
+                radial-gradient(circle at 70% 30%, rgba(0,255,0,0.1) 0%, transparent 10px);
+            pointer-events: none;
+        }
+
+        /* Decoración de circuitos */
+        .circuit-decoration {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            opacity: 0.08;
+            pointer-events: none;
+        }
+
+        .circuit-top-left {
+            top: 20px;
+            left: 5%;
+        }
+
+        .circuit-top-right {
+            top: 20px;
+            right: 5%;
+        }
+
+        .circuit-bottom-left {
+            bottom: 20px;
+            left: 8%;
+        }
+
+        .circuit-bottom-right {
+            bottom: 20px;
+            right: 8%;
+        }
+
+        .event-banner .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .event-banner h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: white;
+        }
+
+        .event-banner .subtitle {
+            font-size: 22px;
+            font-weight: 300;
+            opacity: 0.95;
+        }
+
+        .event-banner .event-date {
+            display: inline-block;
+            margin-top: 24px;
+            padding: 12px 24px;
+            background: rgba(255, 193, 7, 0.2);
+            border: 2px solid #ffc107;
+            border-radius: 4px;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        /* Container Principal */
         .container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        
-        /* HEADER */
-        header {
-            padding: 40px 0;
-            text-align: center;
-            border-bottom: 2px solid var(--border);
-            margin-bottom: 60px;
-            position: relative;
-            overflow: hidden;
+
+        /* Navegación por Tabs */
+        .tabs-nav {
+            background: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
-        header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: 50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
-            transform: translateX(-50%);
-            animation: glow 8s ease-in-out infinite;
+        .tabs-nav .container {
+            display: flex;
+            justify-content: center;
         }
 
-        @keyframes glow {
-            0%, 100% { opacity: 0.5; }
-            50% { opacity: 1; }
+        .tab-button {
+            flex: 1;
+            max-width: 250px;
+            padding: 20px 24px;
+            background: white;
+            border: none;
+            border-bottom: 3px solid transparent;
+            color: #666;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-family: 'Roboto', sans-serif;
         }
 
-        header h1 {
-            font-size: 3.5em;
-            font-weight: 900;
-            margin-bottom: 10px;
-            background: linear-gradient(135deg, var(--secondary) 0%, #00b8ff 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
-            position: relative;
-            z-index: 1;
+        .tab-button:hover {
+            background: #f8f9fa;
+            color: #003b96;
         }
 
-        header .subtitle {
-            font-size: 1.3em;
-            color: var(--text-lighter);
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 1;
+        .tab-button.active {
+            color: #003b96;
+            border-bottom-color: #ffc107;
+            background: white;
+            font-weight: 600;
         }
 
-        .badge {
+        /* Contenido */
+        .content-section {
+            padding: 48px 0;
+            min-height: 400px;
+        }
+
+        .section-header {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 32px;
+            color: #003b96;
+            font-weight: 600;
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid #ffc107;
             display: inline-block;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: white;
-            padding: 10px 25px;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 0.9em;
-            margin-top: 15px;
-            box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
-            border: 1px solid rgba(0, 212, 255, 0.5);
-            position: relative;
-            z-index: 1;
         }
 
-        /* SECCION DE INFO GENERAL */
+        .section-description {
+            color: #666;
+            font-size: 16px;
+            margin-top: 16px;
+        }
+
+        /* Tarjetas de Información */
         .info-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-bottom: 80px;
+            gap: 24px;
+            margin-top: 32px;
         }
 
         .info-card {
-            background: rgba(0, 102, 204, 0.05);
-            border: 2px solid var(--border);
-            border-radius: 15px;
-            padding: 30px;
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 28px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
             transition: all 0.3s ease;
             position: relative;
+            border-left: 5px solid #ffc107;
             overflow: hidden;
-            cursor: pointer;
         }
 
         .info-card::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, transparent 100%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
+            top: -50px;
+            right: -50px;
+            width: 150px;
+            height: 150px;
+            background-image: 
+                radial-gradient(circle at 50% 50%, transparent 30%, rgba(0, 59, 150, 0.02) 30%, rgba(0, 59, 150, 0.02) 35%, transparent 35%),
+                repeating-linear-gradient(45deg, transparent, transparent 5px, rgba(0, 59, 150, 0.02) 5px, rgba(0, 59, 150, 0.02) 6px);
+            opacity: 0.5;
+            pointer-events: none;
         }
 
         .info-card:hover {
-            border-color: var(--secondary);
-            background: rgba(0, 102, 204, 0.1);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.2);
-        }
-
-        .info-card:hover::before {
-            opacity: 1;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+            transform: translateY(-2px);
         }
 
         .info-card h3 {
-            color: var(--secondary);
-            margin-bottom: 10px;
-            font-size: 1.3em;
-            position: relative;
-            z-index: 1;
+            font-size: 20px;
+            color: #003b96;
+            margin-bottom: 12px;
+            font-weight: 600;
         }
 
         .info-card p {
-            color: var(--text-lighter);
-            font-size: 1.1em;
-            position: relative;
-            z-index: 1;
+            color: #666;
+            line-height: 1.6;
         }
 
-        .info-card .icon {
-            font-size: 2.5em;
-            margin-bottom: 15px;
-            display: block;
-        }
-
-        /* SECCIONES */
-        section {
-            margin-bottom: 80px;
-        }
-
-        .section-title {
-            font-size: 2.5em;
-            font-weight: 900;
-            margin-bottom: 40px;
-            color: white;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
-            margin-top: 10px;
-            border-radius: 2px;
-        }
-
-        /* MISION Y VISION */
-        .mission-vision {
+        /* Sección de Contenido con Grid */
+        .content-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-top: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 32px;
         }
 
-        .mv-card {
-            background: linear-gradient(135deg, rgba(0, 102, 204, 0.1) 0%, rgba(0, 212, 255, 0.05) 100%);
-            border: 2px solid var(--border);
-            border-radius: 15px;
-            padding: 40px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
+        .content-box {
+            background: #f8f9fa;
+            padding: 24px;
+            border-radius: 8px;
+            border-top: 4px solid #ffc107;
         }
 
-        .mv-card::before {
-            content: '';
-            position: absolute;
-            top: -100%;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(180deg, transparent 0%, rgba(0, 212, 255, 0.1) 100%);
-            transition: top 0.5s ease;
+        .content-box h4 {
+            color: #003b96;
+            margin-bottom: 12px;
+            font-size: 18px;
         }
 
-        .mv-card:hover {
-            border-color: var(--secondary);
-            background: linear-gradient(135deg, rgba(0, 102, 204, 0.15) 0%, rgba(0, 212, 255, 0.1) 100%);
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(0, 212, 255, 0.2);
+        .content-box p, .content-box li {
+            color: #666;
+            line-height: 1.6;
         }
 
-        .mv-card:hover::before {
-            top: 0;
-        }
-
-        .mv-card h3 {
-            font-size: 2em;
-            color: var(--secondary);
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .mv-card p {
-            color: var(--text-light);
-            margin-bottom: 20px;
-            font-size: 1.05em;
-            line-height: 1.8;
-            position: relative;
-            z-index: 1;
-        }
-
-        .mv-card ul {
+        .content-box ul {
             list-style: none;
-            position: relative;
-            z-index: 1;
+            padding-left: 0;
+            margin-top: 12px;
         }
 
-        .mv-card li {
-            padding: 10px 0;
-            padding-left: 25px;
-            color: var(--text-lighter);
+        .content-box li {
+            padding: 8px 0;
+            padding-left: 20px;
             position: relative;
         }
 
-        .mv-card li::before {
-            content: '▹';
+        .content-box li::before {
+            content: "→";
             position: absolute;
             left: 0;
-            color: var(--secondary);
+            color: #003b96;
             font-weight: bold;
         }
 
-        /* TIMELINE */
-        .timeline {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-top: 40px;
-        }
-
-        .timeline-item {
-            background: rgba(0, 102, 204, 0.08);
-            border: 2px solid var(--border);
-            border-radius: 15px;
-            padding: 30px;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .timeline-item:hover {
-            border-color: var(--secondary);
-            background: rgba(0, 212, 255, 0.1);
-            transform: translateY(-5px);
-        }
-
-        .timeline-year {
-            font-size: 2.5em;
-            font-weight: 900;
-            color: var(--secondary);
-            margin-bottom: 10px;
-        }
-
-        .timeline-desc {
-            color: var(--text-lighter);
-            font-size: 1.1em;
-        }
-
-        /* GRID DE CONTENIDO */
-        .content-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
-        }
-
-        .content-card {
-            background: rgba(0, 102, 204, 0.05);
-            border: 2px solid var(--border);
-            border-radius: 15px;
-            padding: 30px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            position: relative;
-        }
-
-        .content-card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 0;
-            height: 100%;
-            background: rgba(0, 212, 255, 0.1);
-            border-radius: 15px;
-            transition: width 0.3s ease;
-            z-index: 0;
-        }
-
-        .content-card:hover {
-            border-color: var(--secondary);
-            transform: translateY(-8px);
-            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.2);
-        }
-
-        .content-card:hover::after {
-            width: 100%;
-        }
-
-        .content-card > * {
-            position: relative;
-            z-index: 1;
-        }
-
-        .content-card h4 {
-            font-size: 1.3em;
-            color: var(--secondary);
-            margin-bottom: 15px;
-        }
-
-        .content-card p {
-            color: var(--text-lighter);
-            line-height: 1.8;
-        }
-
-        .content-card ul {
-            list-style: none;
-            margin-top: 15px;
-        }
-
-        .content-card li {
-            padding: 8px 0;
-            padding-left: 20px;
-            color: var(--text-lighter);
-            position: relative;
-        }
-
-        .content-card li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: var(--secondary);
-        }
-
-        /* CHART/GRAFICO */
+        /* Gráficos de Barras */
         .chart-container {
-            background: rgba(0, 102, 204, 0.05);
-            border: 2px solid var(--border);
-            border-radius: 15px;
-            padding: 40px;
-            margin-top: 40px;
+            background: #f8f9fa;
+            padding: 32px;
+            border-radius: 8px;
+            margin-top: 32px;
         }
 
         .bar-item {
@@ -410,21 +393,21 @@
             justify-content: space-between;
             margin-bottom: 10px;
             font-weight: 600;
-            color: var(--secondary);
+            color: #003b96;
         }
 
         .bar-bg {
             width: 100%;
             height: 30px;
-            background: rgba(0, 102, 204, 0.1);
+            background: #e9ecef;
             border-radius: 10px;
             overflow: hidden;
-            border: 1px solid var(--border);
+            border: 1px solid #ddd;
         }
 
         .bar-fill {
             height: 100%;
-            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+            background: linear-gradient(90deg, #003b96 0%, #0052cc 100%);
             border-radius: 10px;
             transition: width 1.5s ease-out;
             display: flex;
@@ -436,326 +419,684 @@
             font-size: 0.9em;
         }
 
-        /* FOOTER */
-        footer {
-            border-top: 2px solid var(--border);
-            padding: 40px 0;
-            margin-top: 80px;
+        /* Información General */
+        .info-box {
+            background: #fff8e1;
+            border-left: 4px solid #ffc107;
+            padding: 20px 24px;
+            border-radius: 4px;
+            margin: 24px 0;
+        }
+
+        .info-box-title {
+            font-weight: 600;
+            color: #f57c00;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .info-box-content {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Objetivos */
+        .objectives-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .objective-card {
+            background: #f8f9fa;
+            padding: 24px;
+            border-radius: 8px;
+            border-top: 4px solid #ffc107;
+        }
+
+        .objective-card h4 {
+            color: #003b96;
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+
+        .objective-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Organizadores */
+        .organizers-section {
+            background: #f8f9fa;
+            padding: 48px 0;
+            margin-top: 48px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .organizers-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                repeating-linear-gradient(45deg, transparent, transparent 80px, rgba(0, 59, 150, 0.02) 80px, rgba(0, 59, 150, 0.02) 81px),
+                repeating-linear-gradient(-45deg, transparent, transparent 80px, rgba(0, 59, 150, 0.02) 80px, rgba(0, 59, 150, 0.02) 81px);
+            pointer-events: none;
+        }
+
+        .organizers-section .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .organizers-title {
+            font-size: 32px;
+            color: #003b96;
+            font-weight: 600;
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid #ffc107;
+            display: inline-block;
+        }
+
+        .organizers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .organizer-card {
+            background: white;
+            padding: 24px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 160px;
+        }
+
+        .organizer-card:hover {
+            box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+            transform: translateY(-4px);
+        }
+
+        .organizer-logo {
+            width: 100%;
+            height: 100px;
+            object-fit: contain;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .organizer-card:hover .organizer-logo {
+            transform: scale(1.05);
+        }
+
+        .organizer-logo-text {
+            font-size: 20px;
+            font-weight: 700;
+            color: #003b96;
+            margin-bottom: 8px;
             text-align: center;
-            color: var(--text-lighter);
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        footer p {
-            margin-bottom: 10px;
+        .organizer-description {
+            font-size: 13px;
+            color: #999;
+            margin-top: 8px;
+            text-align: center;
         }
 
-        footer .year {
-            color: var(--secondary);
-            font-weight: bold;
+        /* Footer */
+        footer {
+            background: #003b96;
+            color: white;
+            padding: 40px 0;
+            margin-top: 0;
+            position: relative;
+            overflow: hidden;
         }
 
-        /* RESPONSIVE */
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                repeating-linear-gradient(0deg, transparent, transparent 50px, rgba(255, 193, 7, 0.05) 50px, rgba(255, 193, 7, 0.05) 51px),
+                repeating-linear-gradient(90deg, transparent, transparent 50px, rgba(255, 193, 7, 0.05) 50px, rgba(255, 193, 7, 0.05) 51px);
+            pointer-events: none;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .footer-subtitle {
+            opacity: 0.9;
+            margin-bottom: 16px;
+        }
+
+        .footer-info {
+            font-size: 14px;
+            opacity: 0.8;
+            margin-top: 16px;
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            header h1 {
-                font-size: 2.2em;
+            .logo-uniajc {
+                height: 50px;
+            }
+            
+            .logo-divider {
+                display: none;
+            }
+            
+            .event-banner h1 {
+                font-size: 32px;
+            }
+
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 16px;
+            }
+
+            .tabs-nav .container {
+                flex-direction: column;
+            }
+
+            .tab-button {
+                max-width: 100%;
+                border-bottom: 1px solid #e0e0e0;
+                border-left: 3px solid transparent;
+            }
+
+            .tab-button.active {
+                border-bottom-color: #e0e0e0;
+                border-left-color: #ffc107;
             }
 
             .section-title {
-                font-size: 1.8em;
+                font-size: 24px;
             }
 
-            .mission-vision {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .info-grid,
-            .content-grid {
+            .objectives-grid {
                 grid-template-columns: 1fr;
             }
 
-            .mv-card,
-            .content-card {
-                padding: 25px;
+            .info-grid, .content-grid {
+                grid-template-columns: 1fr;
             }
-        }
-
-        /* ANIMACION DE CARGA */
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        section {
-            animation: slideIn 0.6s ease-out;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- HEADER -->
-        <header>
-            <h1>🎓 PTEI</h1>
+    <!-- Barra Superior -->
+    <div class="top-bar">
+        <div class="container">
+            <div>Institución Universitaria Antonio José Camacho</div>
+            <div>Cali, Valle del Cauca, Colombia</div>
+        </div>
+    </div>
+
+    <!-- Header Principal -->
+    <header class="header-main">
+        <div class="header-content">
+            <div class="logo-institucional">
+                <div class="logo-uniajc">
+                    <img src="./logo-uniajc.png" alt="UNIAJC - Institución Universitaria Antonio José Camacho">
+                </div>
+                <div class="logo-divider"></div>
+                <div class="facultad">Facultad de Ingenierías</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Banner del Evento -->
+    <section class="event-banner">
+        <!-- Decoraciones de circuitos -->
+        <svg class="circuit-decoration circuit-top-left" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="50" r="8" fill="none" stroke="currentColor" stroke-width="2"/>
+            <line x1="50" y1="10" x2="50" y2="42" stroke="currentColor" stroke-width="2"/>
+            <line x1="50" y1="58" x2="50" y2="90" stroke="currentColor" stroke-width="2"/>
+            <line x1="10" y1="50" x2="42" y2="50" stroke="currentColor" stroke-width="2"/>
+            <line x1="58" y1="50" x2="90" y2="50" stroke="currentColor" stroke-width="2"/>
+            <rect x="5" y="5" width="10" height="10" fill="currentColor"/>
+            <rect x="85" y="85" width="10" height="10" fill="currentColor"/>
+        </svg>
+        
+        <svg class="circuit-decoration circuit-top-right" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <rect x="20" y="40" width="60" height="20" fill="none" stroke="currentColor" stroke-width="2"/>
+            <line x1="20" y1="30" x2="20" y2="40" stroke="currentColor" stroke-width="2"/>
+            <line x1="50" y1="30" x2="50" y2="40" stroke="currentColor" stroke-width="2"/>
+            <line x1="80" y1="30" x2="80" y2="40" stroke="currentColor" stroke-width="2"/>
+            <line x1="80" y1="60" x2="80" y2="80" stroke="currentColor" stroke-width="2"/>
+        </svg>
+        
+        <div class="container">
+            <h1>PTEI</h1>
             <p class="subtitle">Tecnología en Electrónica Industrial</p>
-            <p class="subtitle" style="font-size: 1.1em; color: #888; margin-bottom: 20px;">Institución Universitaria Antonio José Camacho (UNIAJC)</p>
-            <div class="badge">⭐ ACREDITACIÓN DE ALTA CALIDAD</div>
-        </header>
+            <div class="event-date">Acreditación de Alta Calidad</div>
+        </div>
+    </section>
 
-        <!-- DATOS GENERALES -->
-        <section>
-            <div class="info-grid">
-                <div class="info-card">
-                    <span class="icon">📋</span>
-                    <h3>Título Otorgado</h3>
-                    <p>Tecnólogo en Electrónica Industrial</p>
-                </div>
-                <div class="info-card">
-                    <span class="icon">🏫</span>
-                    <h3>Modalidad</h3>
-                    <p>Presencial</p>
-                </div>
-                <div class="info-card">
-                    <span class="icon">⏱️</span>
-                    <h3>Duración</h3>
-                    <p>7 semestres</p>
-                </div>
-                <div class="info-card">
-                    <span class="icon">📚</span>
-                    <h3>Créditos</h3>
-                    <p>99 créditos académicos</p>
-                </div>
-                <div class="info-card">
-                    <span class="icon">🏆</span>
-                    <h3>Acreditación</h3>
-                    <p>Resolución MEN 9687 del 11/09/2019</p>
-                </div>
-                <div class="info-card">
-                    <span class="icon">👥</span>
-                    <h3>Trayectoria</h3>
-                    <p>1.691 graduados en 55 años</p>
-                </div>
-            </div>
-        </section>
+    <!-- Navegación por Tabs -->
+    <nav class="tabs-nav">
+        <div class="container">
+            <button class="tab-button active" onclick="showTab('resumen')">Resumen</button>
+            <button class="tab-button" onclick="showTab('mision')">Misión y Visión</button>
+            <button class="tab-button" onclick="showTab('estructura')">Estructura</button>
+            <button class="tab-button" onclick="showTab('competencias')">Competencias</button>
+            <button class="tab-button" onclick="showTab('infraestructura')">Infraestructura</button>
+        </div>
+    </nav>
 
-        <!-- MISIÓN Y VISIÓN -->
-        <section>
-            <h2 class="section-title">🎯 Misión y Visión</h2>
-            <div class="mission-vision">
-                <div class="mv-card">
-                    <h3>🎯 Misión</h3>
-                    <p>Formamos tecnólogos en Electrónica Industrial competentes para el desarrollo sostenible, con capacidad de resolver problemáticas industriales y comunitarias.</p>
-                    <ul>
-                        <li>🌱 Desarrollo sostenible con responsabilidad social y ética</li>
-                        <li>⚙️ Planta docente cualificada y acompañamiento académico</li>
-                        <li>🗂️ Vinculación activa con empresas y sector productivo</li>
-                        <li>🔗 Trabajo por proyectos y prácticas situadas</li>
-                        <li>💻 Soluciones en electrónica, automatización e Industria 4.0</li>
-                        <li>🎓 Currículo articulado con estándares internacionales</li>
-                    </ul>
+    <!-- Contenido: Resumen -->
+    <div id="resumen" class="tab-content active">
+        <section class="content-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Información General</h2>
+                    <p class="section-description">Programa Tecnología en Electrónica Industrial</p>
                 </div>
-                <div class="mv-card">
-                    <h3>🔮 Visión 2030</h3>
-                    <p>En 2030, el programa será referente regional y nacional en la formación de tecnólogos que aporten a la transformación social, tecnológica y productiva del territorio.</p>
-                    <ul>
-                        <li>🔄 Cultura de calidad y autorregulación continua</li>
-                        <li>⚙️ Pertinencia curricular frente a Industria 4.0</li>
-                        <li>🌐 Responsabilidad social y compromiso territorial</li>
-                        <li>⚖️ Contribución a los ODS 4, 8, 9 y 10</li>
-                        <li>🚀 Innovación en formación tecnológica</li>
-                        <li>🤝 Alianzas regionales e internacionales</li>
-                    </ul>
-                </div>
-            </div>
 
-            <!-- TIMELINE -->
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-year">1969</div>
-                    <div class="timeline-desc">Fundación del Programa</div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-year">2019</div>
-                    <div class="timeline-desc">Acreditación Alta Calidad</div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-year">2025</div>
-                    <div class="timeline-desc">1.691 Graduados</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ESTRUCTURA CURRICULAR -->
-        <section>
-            <h2 class="section-title">📚 Estructura Curricular</h2>
-            <div class="chart-container">
-                <div class="bar-item">
-                    <div class="bar-label">
-                        <span>Componente Específico</span>
-                        <span>48%</span>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>Título Otorgado</h3>
+                        <p>Tecnólogo en Electrónica Industrial con formación integral en diseño, implementación y mantenimiento de sistemas electrónicos.</p>
                     </div>
-                    <div class="bar-bg">
-                        <div class="bar-fill" style="width: 48%; animation: slideIn 1.5s ease-out;"></div>
+                    <div class="info-card">
+                        <h3>Modalidad</h3>
+                        <p>Presencial con acceso a laboratorios especializados y equipos de última generación para formación práctica.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Duración</h3>
+                        <p>7 semestres de formación académica con enfoque en proyectos y aprendizaje situado.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Créditos</h3>
+                        <p>99 créditos académicos distribuidos entre componentes específico, básico y transversal.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Acreditación</h3>
+                        <p>Programa acreditado de alta calidad mediante Resolución MEN 9687 del 11 de septiembre de 2019.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Trayectoria</h3>
+                        <p>55 años de experiencia formando profesionales con 1.691 graduados exitosos en el sector industrial.</p>
                     </div>
                 </div>
-                <div class="bar-item">
-                    <div class="bar-label">
-                        <span>Componente Básico</span>
-                        <span>25%</span>
-                    </div>
-                    <div class="bar-bg">
-                        <div class="bar-fill" style="width: 25%; animation: slideIn 1.5s ease-out 0.2s both;"></div>
-                    </div>
-                </div>
-                <div class="bar-item">
-                    <div class="bar-label">
-                        <span>Componente Transversal</span>
-                        <span>27%</span>
-                    </div>
-                    <div class="bar-bg">
-                        <div class="bar-fill" style="width: 27%; animation: slideIn 1.5s ease-out 0.4s both;"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- PERFILES -->
-        <section>
-            <h2 class="section-title">👤 Perfiles</h2>
-            <div class="content-grid">
-                <div class="content-card">
-                    <h4>📋 Perfil del Aspirante</h4>
-                    <ul>
-                        <li>Conocimientos sólidos en ciencias básicas</li>
-                        <li>Uso básico de herramientas TIC</li>
-                        <li>Capacidad de análisis y síntesis</li>
-                        <li>Habilidades de comunicación</li>
-                        <li>Disposición al trabajo en equipo</li>
-                    </ul>
-                </div>
-                <div class="content-card">
-                    <h4>🎓 Perfil del Egresado</h4>
-                    <ul>
-                        <li>🔌 Diseña soluciones electrónicas industriales</li>
-                        <li>⚙️ Gestiona sistemas electrónicos complejos</li>
-                        <li>⚡ Lidera con ética y pensamiento crítico</li>
-                        <li>🤖 Implementa automatización industrial</li>
-                        <li>💼 Emprende y gestiona proyectos</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- PROPÓSITOS DE FORMACIÓN -->
-        <section>
-            <h2 class="section-title">🎯 Propósitos de Formación</h2>
-            <div class="content-grid">
-                <div class="content-card">
-                    <h4>💻 Competencias Técnicas</h4>
-                    <ul>
-                        <li>Gestión de sistemas electrónicos</li>
-                        <li>Programación de controladores industriales</li>
-                        <li>Configuración de redes industriales</li>
-                        <li>Automatización inteligente</li>
-                        <li>Implementación de Industria 4.0</li>
-                    </ul>
-                </div>
-                <div class="content-card">
-                    <h4>🌟 Competencias Transversales</h4>
-                    <ul>
-                        <li>Responsabilidad social y ambiental</li>
-                        <li>Ética profesional</li>
-                        <li>Investigación y innovación</li>
-                        <li>Liderazgo y emprendimiento</li>
-                        <li>Solución de problemas globales</li>
-                    </ul>
-                </div>
-                <div class="content-card">
-                    <h4>🔧 Competencias Laborales</h4>
-                    <ul>
-                        <li>Proyectos de automatización</li>
-                        <li>Mantenimiento preventivo</li>
-                        <li>Consultoría técnica</li>
-                        <li>Gestión de procesos</li>
-                        <li>Aseguramiento de calidad</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- TENDENCIAS TECNOLÓGICAS -->
-        <section>
-            <h2 class="section-title">🚀 Tendencias Tecnológicas</h2>
-            <div class="content-grid">
-                <div class="content-card">
-                    <h4>🤖 Automatización Industrial</h4>
-                    <p>Control inteligente y sistemas automatizados para optimización de procesos</p>
-                </div>
-                <div class="content-card">
-                    <h4>🔧 Sistemas Embebidos</h4>
-                    <p>Desarrollo de dispositivos integrados con capacidades de procesamiento avanzado</p>
-                </div>
-                <div class="content-card">
-                    <h4>⚙️ Control Industrial</h4>
-                    <p>Controladores PLC y SCADA para supervisión de procesos</p>
-                </div>
-                <div class="content-card">
-                    <h4>🦾 Robótica Aplicada</h4>
-                    <p>Implementación de soluciones robóticas en manufactura</p>
-                </div>
-                <div class="content-card">
-                    <h4>🌐 IoT Industrial</h4>
-                    <p>Conectividad y comunicación industrial avanzada</p>
-                </div>
-                <div class="content-card">
-                    <h4>🏭 Industria 4.0</h4>
-                    <p>Integración de sensores, datos y procesos inteligentes</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- RECURSOS -->
-        <section>
-            <h2 class="section-title">🏢 Infraestructura y Recursos</h2>
-            <div class="content-grid">
-                <div class="content-card">
-                    <h4>🏫 Aulas Especializadas</h4>
-                    <p>72 aulas equipadas con tecnología moderna para enseñanza presencial</p>
-                </div>
-                <div class="content-card">
-                    <h4>🔬 Laboratorios</h4>
-                    <p>21 laboratorios y salas especializadas con equipos de última generación</p>
-                </div>
-                <div class="content-card">
-                    <h4>💻 Equipamiento Tecnológico</h4>
-                    <p>1335 computadores en 27 salas con software especializado</p>
-                </div>
-                <div class="content-card">
-                    <h4>📦 Software Profesional</h4>
-                    <p>Matlab, Solidworks, Labview, Cisco, Microsoft Office y más</p>
-                </div>
-                <div class="content-card">
-                    <h4>🔍 Investigación</h4>
-                    <p>Grupo de investigación INTELIGO reconocido por MinCiencias</p>
-                </div>
-                <div class="content-card">
-                    <h4>🌎 Movilidad Internacional</h4>
-                    <p>Convenios con Ecuador, México y otras instituciones internacionales</p>
+                <h3 style="color: #003b96; margin: 32px 0 24px; font-size: 24px;">Distribución de Créditos por Componente</h3>
+                <div class="chart-container">
+                    <div class="bar-item">
+                        <div class="bar-label">
+                            <span>Componente Específico</span>
+                            <span>48%</span>
+                        </div>
+                        <div class="bar-bg">
+                            <div class="bar-fill" style="width: 48%;"></div>
+                        </div>
+                    </div>
+                    <div class="bar-item">
+                        <div class="bar-label">
+                            <span>Componente Básico</span>
+                            <span>25%</span>
+                        </div>
+                        <div class="bar-bg">
+                            <div class="bar-fill" style="width: 25%;"></div>
+                        </div>
+                    </div>
+                    <div class="bar-item">
+                        <div class="bar-label">
+                            <span>Componente Transversal</span>
+                            <span>27%</span>
+                        </div>
+                        <div class="bar-bg">
+                            <div class="bar-fill" style="width: 27%;"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
     </div>
 
-    <!-- FOOTER -->
+    <!-- Contenido: Misión y Visión -->
+    <div id="mision" class="tab-content">
+        <section class="content-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Misión y Visión</h2>
+                    <p class="section-description">Dirección estratégica del programa</p>
+                </div>
+
+                <div class="info-box">
+                    <div class="info-box-title">Misión</div>
+                    <div class="info-box-content">
+                        Formamos tecnólogos en Electrónica Industrial competentes para el desarrollo sostenible, con capacidad de resolver problemáticas industriales y comunitarias a través de la innovación, responsabilidad social y excelencia académica.
+                    </div>
+                </div>
+
+                <h3 style="color: #003b96; margin: 32px 0 24px; font-size: 24px;">Pilares de la Misión</h3>
+                <div class="objectives-grid">
+                    <div class="objective-card">
+                        <h4>Desarrollo Sostenible</h4>
+                        <p>Responsabilidad social y ética integrada en la formación de profesionales conscientes del impacto ambiental y social.</p>
+                    </div>
+                    <div class="objective-card">
+                        <h4>Planta Docente Cualificada</h4>
+                        <p>Profesionales con experiencia industrial y académica que brindan acompañamiento integral a los estudiantes.</p>
+                    </div>
+                    <div class="objective-card">
+                        <h4>Vinculación Empresarial</h4>
+                        <p>Alianzas activas con empresas y sector productivo para asegurar pertinencia y aplicabilidad del conocimiento.</p>
+                    </div>
+                    <div class="objective-card">
+                        <h4>Aprendizaje Práctico</h4>
+                        <p>Trabajos por proyectos y prácticas situadas que conectan la teoría con la realidad industrial.</p>
+                    </div>
+                </div>
+
+                <div class="info-box" style="margin-top: 32px;">
+                    <div class="info-box-title">Visión 2030</div>
+                    <div class="info-box-content">
+                        Ser un programa referente regional y nacional en la formación de tecnólogos que, desde la innovación y sostenibilidad, aporten a la transformación social, tecnológica y productiva del territorio, contribuyendo al desarrollo de la Industria 4.0 y los Objetivos de Desarrollo Sostenible.
+                    </div>
+                </div>
+
+                <h3 style="color: #003b96; margin: 32px 0 24px; font-size: 24px;">Objetivos de la Visión 2030</h3>
+                <div class="objectives-grid">
+                    <div class="objective-card">
+                        <h4>Calidad Continua</h4>
+                        <p>Cultura de autorregulación y mejora continua con modelo de evaluación EvA integrado.</p>
+                    </div>
+                    <div class="objective-card">
+                        <h4>Pertinencia Curricular</h4>
+                        <p>Currículo articulado con demandas emergentes, tecnologías 4.0 y estándares internacionales.</p>
+                    </div>
+                    <div class="objective-card">
+                        <h4>Responsabilidad Territorial</h4>
+                        <p>Compromiso con el desarrollo local y regional a través de investigación y transferencia tecnológica.</p>
+                    </div>
+                    <div class="objective-card">
+                        <h4>Aporte a ODS</h4>
+                        <p>Contribución activa a los Objetivos de Desarrollo Sostenible 4, 8, 9 y 10 de la ONU.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Contenido: Estructura -->
+    <div id="estructura" class="tab-content">
+        <section class="content-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Estructura Curricular</h2>
+                    <p class="section-description">Componentes y énfasis de formación</p>
+                </div>
+
+                <h3 style="color: #003b96; margin: 32px 0 24px; font-size: 24px;">Componentes de Formación</h3>
+                <div class="objectives-grid">
+                    <div class="objective-card">
+                        <h4>Componente Específico</h4>
+                        <p>Asignaturas especializadas en electrónica, automatización, sistemas embebidos, control industrial y diseño de circuitos.</p>
+                    </div>
+                    <div class="objective-card">
+                        <h4>Componente Básico</h4>
+                        <p>Fundamentos en matemáticas, física, programación y ciencias técnicas aplicadas a la electrónica.</p>
+                    </div>
+                    <div class="objective-card">
+                        <h4>Componente Transversal</h4>
+                        <p>Desarrollo de competencias en comunicación, emprendimiento, ética, sostenibilidad e idiomas.</p>
+                    </div>
+                </div>
+
+                <h3 style="color: #003b96; margin: 32px 0 24px; font-size: 24px;">Énfasis Tecnológicos</h3>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>Automatización Industrial</h3>
+                        <p>Diseño e implementación de sistemas automatizados para optimización de procesos industriales.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Sistemas Embebidos</h3>
+                        <p>Desarrollo de dispositivos con procesamiento integrado y aplicaciones especializadas.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Industria 4.0</h3>
+                        <p>Integración de IoT, sensores, datos y procesos inteligentes en manufactura digital.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Contenido: Competencias -->
+    <div id="competencias" class="tab-content">
+        <section class="content-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Perfiles y Competencias</h2>
+                    <p class="section-description">Formación integral de profesionales</p>
+                </div>
+
+                <h3 style="color: #003b96; margin: 32px 0 24px; font-size: 24px;">Perfil del Aspirante</h3>
+                <div class="content-grid">
+                    <div class="content-box">
+                        <h4>Requerimientos Académicos</h4>
+                        <ul>
+                            <li>Conocimientos sólidos en matemáticas y física</li>
+                            <li>Comprensión de conceptos científicos básicos</li>
+                            <li>Habilidad de análisis y síntesis</li>
+                        </ul>
+                    </div>
+                    <div class="content-box">
+                        <h4>Habilidades Personales</h4>
+                        <ul>
+                            <li>Capacidad de comunicación efectiva</li>
+                            <li>Disposición al trabajo en equipo</li>
+                            <li>Curiosidad e interés por la tecnología</li>
+                        </ul>
+                    </div>
+                    <div class="content-box">
+                        <h4>Competencias Técnicas</h4>
+                        <ul>
+                            <li>Uso básico de herramientas TIC</li>
+                            <li>Familiaridad con conceptos electrónicos</li>
+                            <li>Capacidad de resolver problemas</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3 style="color: #003b96; margin: 32px 0 24px; font-size: 24px;">Perfil del Egresado</h3>
+                <div class="content-grid">
+                    <div class="content-box">
+                        <h4>Competencias Técnicas</h4>
+                        <ul>
+                            <li>Diseña soluciones electrónicas industriales</li>
+                            <li>Gestiona sistemas electrónicos complejos</li>
+                            <li>Implementa automatización industrial</li>
+                            <li>Programa controladores y microcontroladores</li>
+                        </ul>
+                    </div>
+                    <div class="content-box">
+                        <h4>Competencias Laborales</h4>
+                        <ul>
+                            <li>Lidero proyectos de innovación tecnológica</li>
+                            <li>Realizo consultoría técnica especializada</li>
+                            <li>Gestiono procesos de calidad y mantenimiento</li>
+                            <li>Aseguro cumplimiento de normas internacionales</li>
+                        </ul>
+                    </div>
+                    <div class="content-box">
+                        <h4>Competencias Transversales</h4>
+                        <ul>
+                            <li>Actúo con ética y responsabilidad social</li>
+                            <li>Emprendo iniciativas sostenibles</li>
+                            <li>Lidero con pensamiento crítico</li>
+                            <li>Me comunico efectivamente</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Contenido: Infraestructura -->
+    <div id="infraestructura" class="tab-content">
+        <section class="content-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Infraestructura y Recursos</h2>
+                    <p class="section-description">Facilidades para formación de excelencia</p>
+                </div>
+
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>Aulas Especializadas</h3>
+                        <p>72 aulas equipadas con tecnología educativa moderna para enseñanza presencial e interactiva.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Laboratorios Equipados</h3>
+                        <p>21 laboratorios y salas especializadas con equipos de última generación para prácticas.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Equipamiento Tecnológico</h3>
+                        <p>1335 computadores en 27 salas con software especializado disponible para estudiantes.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Software Profesional</h3>
+                        <p>Acceso a Matlab, Solidworks, Labview, Cisco, Microsoft Office y herramientas de diseño.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Investigación</h3>
+                        <p>Grupo de investigación INTELIGO reconocido por Minciencias con proyectos innovadores.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Movilidad Internacional</h3>
+                        <p>Convenios con instituciones en Ecuador, México y otras universidades para intercambios.</p>
+                    </div>
+                </div>
+
+                <h3 style="color: #003b96; margin: 32px 0 24px; font-size: 24px;">Tendencias Tecnológicas Desarrolladas</h3>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>Automatización Industrial</h3>
+                        <p>Control inteligente y sistemas automatizados para optimización de procesos.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Sistemas Embebidos</h3>
+                        <p>Desarrollo de dispositivos integrados con capacidades de procesamiento avanzado.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Control Industrial</h3>
+                        <p>Controladores PLC y SCADA para supervisión avanzada de procesos.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Robótica Aplicada</h3>
+                        <p>Implementación de soluciones robóticas en manufactura y automatización.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>IoT Industrial</h3>
+                        <p>Conectividad y comunicación industrial avanzada con redes inteligentes.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Industria 4.0</h3>
+                        <p>Integración de sensores, datos y procesos inteligentes en manufactura digital.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Organizadores -->
+    <section class="organizers-section">
+        <div class="container">
+            <h2 class="organizers-title">Institución Responsable</h2>
+            <div class="organizers-grid">
+                <div class="organizer-card">
+                    <img src="./logo-uniajc.png" alt="UNIAJC" class="organizer-logo" style="max-width: 160px;">
+                </div>
+                <div class="organizer-card">
+                    <div class="organizer-logo-text">UNIAJC</div>
+                    <p class="organizer-description">Institución Universitaria con 55 años de excelencia educativa</p>
+                </div>
+                <div class="organizer-card">
+                    <div class="organizer-logo-text">Facultad de Ingenierías</div>
+                    <p class="organizer-description">Formación integral en tecnología e ingeniería</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
-        <p>Institución Universitaria Antonio José Camacho - UNIAJC</p>
-        <p>Programa Tecnología en Electrónica Industrial</p>
-        <p>© <span class="year">2025</span> - Todos los derechos reservados</p>
+        <div class="footer-content">
+            <div class="footer-title">Institución Universitaria Antonio José Camacho</div>
+            <div class="footer-subtitle">Programa Tecnología en Electrónica Industrial</div>
+            <div class="footer-info">
+                <p>Cali, Valle del Cauca, Colombia</p>
+                <p>Facultad de Ingenierías</p>
+                <p>© 2025 UNIAJC - Todos los derechos reservados</p>
+            </div>
+        </div>
     </footer>
+
+    <script>
+        function showTab(tabName) {
+            // Ocultar todos los tab-content
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Remover active de todos los botones
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(button => {
+                button.classList.remove('active');
+            });
+
+            // Mostrar el tab seleccionado
+            document.getElementById(tabName).classList.add('active');
+            
+            // Marcar el botón como active
+            event.target.classList.add('active');
+        }
+    </script>
 </body>
 </html>
